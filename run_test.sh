@@ -45,7 +45,7 @@ declare -a files=(
 
 # only use back up
 for f in "${files[@]}"; do
-    cp ../"$f" .
+    cp ../"$f" ./test
 done
 
 # testing begins
@@ -109,11 +109,11 @@ fi
 
 # executable/object file clean up
 echo
-make clean
+make -s clean
 
 # clean up
 for f in "${files[@]}"; do
-    rm "$f"
+   rm test/"$f"
 done
 
 echo

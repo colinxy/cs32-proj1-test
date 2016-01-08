@@ -2,11 +2,11 @@ CXX = g++
 
 CPPFLAGS = -std=c++11 -Wall
 OBJS	 = Robot.o Player.o History.o \
-		   Arena.o Game.o utilities.o
-SRCS	 = Arena.cpp Game.cpp History.cpp \
-		   Player.cpp Robot.cpp utilities.cpp
-HDRS	 = globals.h Robot.h Player.h \
-		   Arena.h Game.h History.h
+           Arena.o Game.o utilities.o
+SRCS	 = test/Arena.cpp test/Game.cpp test/History.cpp \
+           test/Player.cpp test/Robot.cpp test/utilities.cpp
+HDRS	 = test/globals.h test/Robot.h test/Player.h \
+           test/Arena.h test/Game.h test/History.h
 
 
 clean :
@@ -14,61 +14,61 @@ clean :
 
 # preliminary
 
-Robot.o : Robot.cpp Robot.h Player.h Arena.h globals.h
-	$(CXX) $(CPPFLAGS) -c -o Robot.o Robot.cpp
+Robot.o : test/Robot.cpp test/Robot.h test/Player.h test/Arena.h test/globals.h
+	$(CXX) $(CPPFLAGS) -c -o Robot.o test/Robot.cpp
 
-Player.o : Player.cpp Robot.h Player.h Arena.h globals.h
-	$(CXX) $(CPPFLAGS) -c -o Player.o Player.cpp
+Player.o : test/Player.cpp test/Robot.h test/Player.h test/Arena.h test/globals.h
+	$(CXX) $(CPPFLAGS) -c -o Player.o test/Player.cpp
 
-History.o : History.cpp History.h globals.h
-	$(CXX) $(CPPFLAGS) -c -o History.o History.cpp
+History.o : test/History.cpp test/History.h test/globals.h
+	$(CXX) $(CPPFLAGS) -c -o History.o test/History.cpp
 
-Arena.o : Arena.cpp Robot.h Player.h Arena.h globals.h
-	$(CXX) $(CPPFLAGS) -c -o Arena.o Arena.cpp
+Arena.o : test/Arena.cpp test/Robot.h test/Player.h test/Arena.h test/globals.h
+	$(CXX) $(CPPFLAGS) -c -o Arena.o test/Arena.cpp
 
-Game.o : Game.cpp Game.h Robot.h Player.h Arena.h globals.h
-	$(CXX) $(CPPFLAGS) -c -o Game.o Game.cpp
+Game.o : test/Game.cpp test/Game.h test/Robot.h test/Player.h test/Arena.h test/globals.h
+	$(CXX) $(CPPFLAGS) -c -o Game.o test/Game.cpp
 
-utilities.o : utilities.cpp globals.h
-	$(CXX) $(CPPFLAGS) -c -o utilities.o utilities.cpp
+utilities.o : test/utilities.cpp test/globals.h
+	$(CXX) $(CPPFLAGS) -c -o utilities.o test/utilities.cpp
 
 # compilation test
 
 # the following compilation should succeed
-arena_h : arena_h.cpp Arena.h $(OBJS)
-	$(CXX) $(CPPFLAGS) -o arena_h.out arena_h.cpp $(OBJS)
+arena_h : test/arena_h.cpp test/Arena.h $(OBJS)
+	$(CXX) $(CPPFLAGS) -o arena_h.out test/arena_h.cpp $(OBJS)
 
-arena_player_h : arena_player_h.cpp Arena.h Player.h $(OBJS)
-	$(CXX) $(CPPFLAGS) -o arena_player_h.out arena_player_h.cpp $(OBJS)
+arena_player_h : test/arena_player_h.cpp test/Arena.h test/Player.h $(OBJS)
+	$(CXX) $(CPPFLAGS) -o arena_player_h.out test/arena_player_h.cpp $(OBJS)
 
-history_h : history_h.cpp History.h $(OBJS)
-	$(CXX) $(CPPFLAGS) -o history_h.out history_h.cpp $(OBJS)
+history_h : test/history_h.cpp test/History.h $(OBJS)
+	$(CXX) $(CPPFLAGS) -o history_h.out test/history_h.cpp $(OBJS)
 
-multi_h : multi_h.cpp $(HDRS)
-	$(CXX) $(CPPFLAGS) -o multi_h.out multi_h.cpp $(OBJS)
+multi_h : test/multi_h.cpp $(HDRS)
+	$(CXX) $(CPPFLAGS) -o multi_h.out test/multi_h.cpp $(OBJS)
 
-player_arena_g_h : player_arena_g_h.cpp Player.h Arena.h globals.h $(OBJS)
-	$(CXX) $(CPPFLAGS) -o player_arena_g_h.out player_arena_g_h.cpp $(OBJS)
+player_arena_g_h : test/player_arena_g_h.cpp test/Player.h test/Arena.h test/globals.h $(OBJS)
+	$(CXX) $(CPPFLAGS) -o player_arena_g_h.out test/player_arena_g_h.cpp $(OBJS)
 
-player_arena_h : player_arena_h.cpp Player.h Arena.h $(OBJS)
-	$(CXX) $(CPPFLAGS) -o player_arena_h.out player_arena_h.cpp $(OBJS)
+player_arena_h : test/player_arena_h.cpp test/Player.h test/Arena.h $(OBJS)
+	$(CXX) $(CPPFLAGS) -o player_arena_h.out test/player_arena_h.cpp $(OBJS)
 
-player_h : player_h.cpp Player.h $(OBJS)
-	$(CXX) $(CPPFLAGS) -o player_h.out player_h.cpp $(OBJS)
+player_h : test/player_h.cpp test/Player.h $(OBJS)
+	$(CXX) $(CPPFLAGS) -o player_h.out test/player_h.cpp $(OBJS)
 
-robot_h : robot_h.cpp Robot.h $(OBJS)
-	$(CXX) $(CPPFLAGS) -o robot_h.out robot_h.cpp $(OBJS)
+robot_h : test/robot_h.cpp test/Robot.h $(OBJS)
+	$(CXX) $(CPPFLAGS) -o robot_h.out test/robot_h.cpp $(OBJS)
 
 # the following compilation should fail
-history_FAIL_h : history_FAIL_h.cpp History.h $(OBJS)
-	$(CXX) $(CPPFLAGS) -o history_FAIL_h.out history_FAIL_h.cpp $(OBJS)
+history_FAIL_h : test/history_FAIL_h.cpp test/History.h $(OBJS)
+	$(CXX) $(CPPFLAGS) -o history_FAIL_h.out test/history_FAIL_h.cpp $(OBJS)
 
-player_arena_FAIL_h : player_arena_FAIL_h.cpp Player.h Arena.h $(OBJS)
-	$(CXX) $(CPPFLAGS) -o player_arena_FAIL_h.out player_arena_FAIL_h.cpp $(OBJS)
+player_arena_FAIL_h : test/player_arena_FAIL_h.cpp test/Player.h test/Arena.h $(OBJS)
+	$(CXX) $(CPPFLAGS) -o player_arena_FAIL_h.out test/player_arena_FAIL_h.cpp $(OBJS)
 
-robot_player_g_FAIL_h : robot_player_g_FAIL_h.cpp Robot.h Player.h globals.h $(SRCS)
-	$(CXX) $(CPPFLAGS) -o robot_player_g_FAIL_h.out robot_player_g_FAIL_h.cpp $(OBJS)
+robot_player_g_FAIL_h : test/robot_player_g_FAIL_h.cpp test/Robot.h test/Player.h test/globals.h $(OBJS)
+	$(CXX) $(CPPFLAGS) -o robot_player_g_FAIL_h.out test/robot_player_g_FAIL_h.cpp $(OBJS)
 
 # output test
-arena_history_player_g_h : arena_history_player_g_h.cpp Arena.h History.h Player.h globals.h $(OBJS)
-	$(CXX) $(CPPFLAGS) -o arena_history_player_g_h.out arena_history_player_g_h.cpp $(OBJS)
+arena_history_player_g_h : test/arena_history_player_g_h.cpp test/Arena.h test/History.h test/Player.h test/globals.h $(OBJS)
+	$(CXX) $(CPPFLAGS) -o arena_history_player_g_h.out test/arena_history_player_g_h.cpp $(OBJS)

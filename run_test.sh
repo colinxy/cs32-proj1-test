@@ -89,20 +89,19 @@ make -s robot_player_g_FAIL_h  2>/dev/null && expect_fail robot_player_g_FAIL_h
 echo "robot_player_g_FAIL_h fails to compile"
 
 # output test
-expected_output="\x1B[2J\x1B[H...A
-.B..
-....
-....\n"
-echo "$expected_output" > /tmp/expected.output
+# expected output is stored in expected_output.txt
+expected=expected_output.txt
 
-./arena_history_player_g_h.out > /tmp/get.output
+# actual output is stored in /tmp/get.output
+output=/tmp/get.output
+./arena_history_player_g_h.out > $output
 
-diff /tmp/expected.output /tmp/get.output >/dev/null 2>/dev/null
+diff $output $expected >/dev/null 2>/dev/null
 if [ $? != 0 ]; then
     echo "expected output:"
-    cat /tmp/expected.output
+    cat $expected
     echo "got:"
-    cat /tmp/get.output
+    cat $output
     echo "OUTPUT ERROR"
     exit 3
 fi

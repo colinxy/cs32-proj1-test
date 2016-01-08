@@ -93,12 +93,16 @@ expected_output="\x1B[2J\x1B[H...A
 .B..
 ....
 ....\n"
+echo "$expected_output" > /tmp/expected.output
 
-output=$(./arena_history_player_g_h)
+./arena_history_player_g_h.out > /tmp/get.output
 
-if [ "$output" != "$expected_output" ]; then
-    echo -e "\nexpected_output:\n$expected_output"
-    echo -e "\ngot:\n$output"
+diff /tmp/expected.output /tmp/get.output >/dev/null 2>/dev/null
+if [ $? != 0 ]; then
+    echo "expected output:"
+    cat /tmp/expected.output
+    echo "got:"
+    cat /tmp/get.output
     echo "OUTPUT ERROR"
     exit 3
 fi

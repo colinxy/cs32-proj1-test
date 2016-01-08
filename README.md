@@ -14,8 +14,8 @@ It might produce output helpful for debugging your code.
 
 The code itself is written by mortals, and therefore it might
 contain bugs. If you think your code is definitely correct,
-but does not pass the test, Please make a pull request, or
-send an email to the author with a simple explanation of why
+but does not pass the test, please create an issue, or send
+an email to the author with a simple explanation of why
 the test is not working.
 
 Because the test might automatically clean up itself after

@@ -5,7 +5,7 @@ This project is dedicated to the testing of project 1 in CS32
 ### DISCLAIMER
 
 This test implements most of the requirements as specified in
-the project specification, and contains additional components
+the project specification, along with additional components
 to test your project more thoroughly.
 However, passing this test does not guarantee that your code
 is entirely correct or will pass the Smallberg's test. It
@@ -46,6 +46,10 @@ Then, cd into this directory
 
 `cd cs32-proj1-test`
 
-and execute
+and to execute it, first make it an executable
 
-`bash run_test.sh`
+`chmod +x run_test.sh`
+
+and run it with
+
+`./run_test.sh`

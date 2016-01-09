@@ -1,17 +1,23 @@
-#! /bin/bash
+#! /bin/sh
 
 # immediate exit on failure of any command
 set -e
 
+# exit code explanation
+# 1 : read the instructions more carefully
+# 2 : compilation error, either compilation fails,
+#     or succeeds when not supposed to
+# 3 : output error
+
 function expect_fail {
     echo "$1 is expected to fail, but succeeds"
-    echo "COMPILATION ERROR"
+    echo -e "\nCOMPILATION ERROR"
     exit 2
 }
 
 function expect_succeed {
     echo "$1 is expected to succeed, but fails"
-    echo "COMPILATION ERROR"
+    echo -e "\nCOMPILATION ERROR"
     exit 2
 }
 
@@ -23,7 +29,7 @@ echo "Is \`$parent_dir' your project directory?"
 read -p "[y/n]: " -n 1 -r
 echo
 if [ "$REPLY" != 'y' ]; then
-    echo "requirement not met, exiting test"
+    echo -e "\nrequirement not met, exiting test"
     exit 1
 fi
 
@@ -102,7 +108,7 @@ if [ $? != 0 ]; then
     cat $expected
     echo "got:"
     cat $output
-    echo "OUTPUT ERROR"
+    echo -e "\nOUTPUT ERROR"
     exit 3
 fi
 

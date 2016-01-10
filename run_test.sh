@@ -119,7 +119,7 @@ make -s clean
 
 # clean up
 for f in "${files[@]}"; do
-   rm test/"$f"
+    rm test/"$f"
 done
 
 echo

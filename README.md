@@ -31,7 +31,8 @@ does not take any responsibility in case of any accident.
 
 ### Running the test
 
-All code are expected to run in command line
+All code are expected to run in command line under
+a *nix system.
 
 First, navigate to the directory where all your source files
 are located
@@ -46,10 +47,18 @@ Then, cd into this directory
 
 `cd cs32-proj1-test`
 
-and to execute it, first make it an executable
+and to execute it, first make it executable
 
 `chmod +x run_test.sh`
 
 and run it with
 
 `./run_test.sh`
+
+If the test output ends with a line,
+
+`****** All Test Passed ******`
+
+your code passes the test. Be sure to read
+the error message carefully as it contains
+useful information for debugging your code.

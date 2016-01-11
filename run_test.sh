@@ -102,8 +102,8 @@ expected=expected_output.txt
 output=/tmp/get.output
 ./arena_history_player_g_h.out > $output
 
-diff $output $expected >/dev/null 2>/dev/null
-if [ $? != 0 ]; then
+diff $output $expected >/dev/null 2>/dev/null; exit_code=$?
+if [ $exit_code != 0 ]; then
     echo "expected output:"
     cat $expected
     echo "got:"

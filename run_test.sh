@@ -123,4 +123,4 @@ for f in "${files[@]}"; do
 done
 
 echo
-echo "****** All Test Passed ******"
+echo "****** All Tests Passed ******"

@@ -8,14 +8,14 @@ This test implements most of the requirements as specified in
 the project specification, along with additional components
 to test your project more thoroughly.
 However, passing this test does not guarantee that your code
-is entirely correct or will pass the Smallberg's test. It
-serves merely as a reassurance that your code should be correct.
-It might produce output helpful for debugging your code.
+is entirely correct or will pass Smallberg's tests. It
+serves merely as a reassurance that your code is correct.
+It might also produce output helpful for debugging your code.
 
 The code itself is written by mortals, and therefore it might
-contain bugs. If you think your code is definitely correct,
+contain bugs. If you are pretty sure your code is correct,
 but does not pass the test, please create an issue, or send
-an email to the author with a simple explanation of why
+an email to the author with a simple explanation as to why
 the test is not working.
 
 Because the test might automatically clean up itself after
@@ -25,14 +25,14 @@ the project specification or the instructions for running this
 test. Therefore, it is **STRONGLY ADVISED** to make a backup
 of your code before running the test.
 
-Running the test is entirely the person's own will. The author
-does not take any responsibility in case of any accident.
+Run the test at your own discretion. The author does not
+take any responsibility in case of any accident.
 
 
 ### Running the test
 
 All code are expected to run in command line under
-a *nix system.
+a \*nix system.
 
 First, navigate to the directory where all your source files
 are located
